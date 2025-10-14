@@ -13,7 +13,8 @@ Route::get('/sobre-nos', [\App\Http\Controllers\SobreNoscontroller::class, 'Sobr
 
 Route::get('/contato', [\App\Http\Controllers\Contatocontroller::class, 'contato']);
 
-// nome, categoria, assunto, mensagem. separa por barra e chaves
-Route::get('/contato/{nome}/{categoria}/{assunto}/{mensagem}', function(string $nome, string $categoria, string $assunto, string $mensagem) {
-    echo "Estamos aqui: $nome - $categoria - $assunto - $mensagem";
-});
+// 4 novas rotas
+Route::get('/login', function(){ return 'Login'; });
+Route::get('/clientes', function(){ return 'Clientes'; });
+Route::get('/fornecedores', function(){ return 'Fornecedores'; });
+Route::get('/produtos', function(){ return 'Produtos'; });
