@@ -21,7 +21,8 @@ Route::prefix('/app')->group(function() {
 });
 
 //FORMAS DE CRIAR UM REDIRECIONAMENTO Route::redirect('/rota2', '/rota1');
-Route::get('/teste/{p1}/{p2}','TesteController@teste')->name('teste');
+
+Route::get('/teste/{p1}/{p2}', [\App\Http\Controllers\TesteController::class, 'teste'])->name('teste');
 
 //ROTA DE CONTINGÊNCIA OU FALLBACK, TEM A FUNÇÃO DE EVITAR A TELA DE ERRO AO USUÁRIO FINAL.
 Route::fallback(function() {
