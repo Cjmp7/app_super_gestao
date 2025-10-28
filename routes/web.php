@@ -17,8 +17,9 @@ Route::get('/login', function(){ return 'Login'; })->name('site.login');
 
 Route::prefix('/app')->group(function() {
     Route::get('/clientes', function(){ return 'Clientes'; })->name('app.clientes');
-    Route::get('/fornecedores', [\App\Http\Controllers\FornecedorController::class, 'fornecedores'])->name('app.fornecedores');
+    Route::get('/fornecedores', [\App\Http\Controllers\FornecedorController::class, 'index'])->name('app.fornecedores');
     Route::get('/produtos', function(){ return 'Produtos'; })->name('app.produtos');
+    // metodo invoke= index
 });
 
 //FORMAS DE CRIAR UM REDIRECIONAMENTO Route::redirect('/rota2', '/rota1');
