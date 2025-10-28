@@ -12,11 +12,12 @@ Route::get('/sobre-nos', [\App\Http\Controllers\SobreNoscontroller::class, 'Sobr
 Route::get('/contato', [\App\Http\Controllers\Contatocontroller::class, 'contato'])->name('site.contato');
 Route::get('/login', function(){ return 'Login'; })->name('site.login');
 
+
 // 3 novas rotas
 
 Route::prefix('/app')->group(function() {
     Route::get('/clientes', function(){ return 'Clientes'; })->name('app.clientes');
-    Route::get('/fornecedores', function(){ return 'Fornecedores'; })->name('app.fornecedores');
+    Route::get('/fornecedores', [\App\Http\Controllers\FornecedorController::class, 'fornecedores'])->name('app.fornecedores');
     Route::get('/produtos', function(){ return 'Produtos'; })->name('app.produtos');
 });
 
