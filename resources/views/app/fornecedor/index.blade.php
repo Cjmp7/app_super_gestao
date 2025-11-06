@@ -40,10 +40,21 @@
 o @unless, executa se o retorno for false
 --}}
 
-Fornecedor: {{ $fornecedores[0]['nome'] }}
-<br>
-Status: {{ $fornecedores[0]['status'] }}
-<br>
+@isset($fornecedores)
+    Fornecedor: {{ $fornecedores[0]['nome'] }}
+    <br>
+    Status: {{ $fornecedores[0]['status'] }}
+    <br>
+    @isset($fornecedores[0] ['cnpj'])
+    CNPJ: {{ $fornecedores[0]['cnpj'] }}
+    @empty($fornecedores[0] ['cnpj'])
+        - Vazio
+    @endempty
+    @endisset
+@endisset
+
+@php
+    /*
 @if( !($fornecedores[0]['status'] == 'S') )
     Fornecedor inativo
 @endif  
@@ -51,3 +62,25 @@ Status: {{ $fornecedores[0]['status'] }}
 @unless($fornecedores[0]['status'] == 'S') <!-- executa se o retorno da condição for false -->
 Fornecedor inativo
 @endunless
+    */
+@endphp
+
+@php
+    /*
+    if(isset($variavel)) {} //retornar true se a variável estiver definida!
+    */
+@endphp
+
+@php
+    /*
+    if(empty($variavel)) {} //retornar true se a variável estiver vazia! Exemplo:
+    - ''
+    - 0
+    - 0.0
+    - '0'
+    - null
+    - false
+    - array()
+    - $var  // correto=> $var = 'abc'
+    */
+@endphp
